@@ -1,6 +1,6 @@
 import { initialize } from '@bcwdev/auth0provider-client'
 import { AppState } from '../AppState'
-import { audience, clientId, domain } from '../env'
+import { audience, clientId, domain } from '../env.js'
 import { router } from '../router'
 import { accountService } from './AccountService'
 import { api } from './AxiosService'
@@ -20,7 +20,7 @@ export const AuthService = initialize({
   }
 })
 
-AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
+AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
   api.defaults.headers.authorization = AuthService.bearer
   api.interceptors.request.use(refreshAuthToken)
   AppState.user = AuthService.user

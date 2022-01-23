@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client'
-import { baseURL, useSockets } from '../env.js'
+import { baseURL, useSockets } from '../env'
 import { logger } from './Logger.js'
 
 const SOCKET_EVENTS = {
